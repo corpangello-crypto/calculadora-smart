@@ -36,8 +36,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build APK
+        env:
+          CI: "true"
         run: |
-          flet build apk --no-interactive
+          yes | flet build apk
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
